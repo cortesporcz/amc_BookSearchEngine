@@ -1,10 +1,24 @@
+//Importing mods and dependencies
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
+const { ApolloServer } = require('@apollo/server');
+const { expressMiddleware } = require('@apollo/server/express4');
+const { authMiddleware } = require('./utils/auth');
+const { typeDefs, resolvers } = require('./schemas');
 
+//Creating express app
 const app = express();
+
+//Setting port for server
 const PORT = process.env.PORT || 3001;
+
+//Setting up the Apollo Server with provided type definitions and resolvers
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
