@@ -1,5 +1,12 @@
 const router = require('express').Router();
-import { createUser, getSingleUser, saveBook, deleteBook, login } from '../../controllers/user-controller';
+//import { createUser, getSingleUser, saveBook, deleteBook, login } from '../../controllers/user-controller';
+const {
+    createUser,
+    getSingleUser,
+    saveBook,
+    deleteBook,
+    login,
+  } = require('../../controllers/user-controller');
 
 // import middleware
 import { authMiddleware } from '../../utils/auth';
@@ -13,4 +20,5 @@ router.route('/me').get(authMiddleware, getSingleUser);
 
 router.route('/books/:bookId').delete(authMiddleware, deleteBook);
 
-export default router;
+//export default router;
+module.exports = router;
