@@ -1,8 +1,16 @@
+// Importing necessary modules for JSON Web Token (JWT) and GraphQL errors
 const jwt = require('jsonwebtoken');
+const { GraphQLError } = require('graphql');
 
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';
 const expiration = '2h';
+
+//module.exports = {
+  // Function for handling authentication middleware
+  //authMiddleware: function ({ req }) {
+    // Allows token to be sent via req.query, headers, or req.body
+    //let token = req.body.token || req.query.token || req.headers.authorization;
 
 module.exports = {
   // function for our authenticated routes
